@@ -1,0 +1,22 @@
+name: Deploy to WP Engine Development Environment
+on:
+  push:
+    branches:
+      - development
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Deploy twg-material-child theme
+      - name: Deploy twg-material-child theme to WP Engine
+        uses: wpengine/github-action-wpe-site-deploy@v3
+        with:
+          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+          WPE_ENV: material1
+          PHP_LINT: TRUE
+          CACHE_CLEAR: TRUE
+          SRC_PATH: "wp-content/themes/twg-material-child/"
+          REMOTE_PATH: "wp-content/themes/twg-material-child/"
