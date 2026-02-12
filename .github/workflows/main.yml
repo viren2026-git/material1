@@ -14,7 +14,7 @@ jobs:
       - name: Deploy twg-material-child theme to WP Engine
         uses: wpengine/github-action-wpe-site-deploy@v3
         with:
-          WPE_SSHG_KEY_PRIVATE_NEW: ${{ secrets.WPE_SSHG_KEY_PRIVATE_NEW }}
+          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
           WPE_ENV: material1
           PHP_LINT: TRUE
           CACHE_CLEAR: TRUE
